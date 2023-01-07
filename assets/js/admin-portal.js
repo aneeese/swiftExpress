@@ -1,6 +1,6 @@
-//import { memberFound } from "../../controllers/members";
 (function() {
   "use strict";
+
   /**
    * Easy selector helper function
    */
@@ -251,7 +251,6 @@
     $('#card-expiry-month').hide();
     $('#card-holder-name').hide();
     $("#table_div").hide();
-
   });
 
   /**
@@ -284,7 +283,7 @@ $("#searchBtn").click(function(){
 });
 
 var membership_table_data = [{
-  "FullName": "Bob",
+  "FullName": "Paul",
   "CNIC": 22,
   "StartDate": "Canada",
   "MembershipCode": "8238df2839",
