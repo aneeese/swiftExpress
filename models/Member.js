@@ -2,13 +2,16 @@ import mongoose from "mongoose";
 
 const memberSchema = new mongoose.Schema({
     memberID: String,
+    memberCnic: String,
     membershipPrice: Number,
     membershipPercentage: Number,
-    start_date: String,
-    end_date: String,
+    memb_StartDate: String,
+    memb_EndDate: String,
     cardNo: Number,
+    cardHolder: String,
     securitykey: Number,
-    cardExpiry: String
+    card_expiryMonth: String,
+    card_expiryYear: String
 });
 
 const Member = mongoose.model("Member", memberSchema);

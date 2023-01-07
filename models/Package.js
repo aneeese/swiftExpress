@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const packageSchema = new mongoose.Schema({
     fullName: String,
     usercnic: String,
     userEmail: String,
@@ -14,12 +14,16 @@ const userSchema = new mongoose.Schema({
             destPostalCode: String,
             destAddress: String,
             packageWeight: String,
-            sensitivity: Boolean,
+            dimensions: String,
+            isSensitive: String,
             estimatedCost: Number,
-            isDelivered: Boolean
+            isDelivered: Boolean,
+            path: {
+                type: [String]
+            }
         }
     ]
 });
 
-const User = mongoose.model("User", userSchema);
-export default User;
+const Package = mongoose.model("Package", packageSchema);
+export default Package;

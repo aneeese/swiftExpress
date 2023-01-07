@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export const sendMail = (from, to) => {
+export const sendMail = (to, packageID, packgCost) => {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -10,10 +10,10 @@ export const sendMail = (from, to) => {
   });
   
   var mailOptions = {
-    from: from,
+    from: "aneese421@gmail.com",
     to: to,
-    subject: 'Sending Email using Node.js',
-    text: `Lorem ipsum dolor, sit amet onsectetur adipisicing elit. Doloremque vero sapiente natus veniam eaque atque.`
+    subject: 'TRACKING ID',
+    text: `Your Tracking ID is ${packageID} and Package cost is ${packgCost}!`
   };
   
   transporter.sendMail(mailOptions, function(error, info){

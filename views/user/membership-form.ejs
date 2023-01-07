@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
    <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon" />
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/img/favicon.png" rel="icon" />
+    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,22 +23,22 @@
 
     <!-- Vendor CSS Files -->
     <link
-      href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+      href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
     />
     <link
-      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"
+      href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"
     />
     <link
-      href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+      href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
     />
     <link
-      href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"
+      href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"
     />
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="/vendor/aos/aos.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/main.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
 
   <!-- JQuery Files -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -50,19 +50,19 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="../assets/img/app-logo.png" alt="">
+      <a href="index" class="logo d-flex align-items-center">
+        <img src="/img/app-logo.png" alt="">
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="get-membership active-nav-membership" href="membership-form.html">Get Membership</a></li>
+          <li><a href="index">Home</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="services">Services</a></li>
+          <li><a href="contact">Contact</a></li>
+          <li><a class="get-membership active-nav-membership" href="membership-form">Get Membership</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -74,7 +74,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+      <div class="page-header d-flex align-items-center" style="background-image: url('/img/page-header.jpg');">
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
@@ -87,7 +87,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index">Home</a></li>
             <li>Membership</li>
           </ol>
         </div>
@@ -170,10 +170,10 @@
           <h2>Buy Membership</h2>
         </div>
 
-        <form action="#" method="post" role="form" class="php-email-form">
+        <form action="/membership-form" method="post" onsubmit="return validation()">
           
           <div class="form-group mt-3">
-            <select name="cars" id="cars" class="form-select">
+            <select name="package" id="package" class="form-select" onchange="change()">
               <option value="classic-lite">Classic-Lite</option>
               <option value="classic-pro">Classic-Pro</option>
               <option value="gold">Gold</option>
@@ -182,13 +182,24 @@
           </div>
 
           <div class="form-group mt-3">
+            <input id="cnic" 
+            class="form-control" 
+            type="text" 
+            name="memberCnic" 
+            title="CNIC" 
+            placeholder="CNIC" 
+            required/>
+          </div>
+
+
+          <div class="form-group mt-3">
             <input
               type="text"
-              name="card-num"
+              name="cardNo"
               class="form-control"
               id="cardNum"
               placeholder="Card Number"
-              pattern="[0-9]{16}"
+              
               required
             />
           </div>
@@ -197,7 +208,7 @@
             <input
               type="text"
               class="form-control"
-              name="card-holder-name"
+              name="card_holder_name"
               id="card-holder-name"
               placeholder="Card Holder Name"
               required
@@ -209,7 +220,7 @@
               <input
                 type="number"
                 class="form-control"
-                name="card-expiry-month"
+                name="card_expiry_month"
                 id="card-expiry-month"
                 placeholder="Card Expiry Month"
                 min="1" max="12"
@@ -220,7 +231,7 @@
               <input
                 type="text"
                 class="form-control"
-                name="card-expiry-year"
+                name="card_expiry_year"
                 id="card-expiry-year"
                 placeholder="Card Expiry Year"
                 pattern="[0-9]{4}"
@@ -230,7 +241,7 @@
             <div class="col-md-4 form-group mt-3">
                 <input
                 type="text"
-                name="cvv"
+                name="securitykey"
                 class="form-control"
                 id="cvv"
                 placeholder="CVV"
@@ -240,21 +251,63 @@
             </div>
 
           </div>
-
-          
-          
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message">Display #popup-unsuccessful using 'data-bs-toggle="modal" data-bs-target="#popup-unsuccessPay"'</div>
-            <div class="sent-message">
-              Display #popup-successful using 'data-bs-toggle="modal" data-bs-target="#popup-successPay"'
-            </div>
           
           <div class="text-center">
-            <button type="submit" class="mt-2">Confirm and Pay <span>Rs. xyz</span></button>
+            <button type="submit" id="payment_btn" class="mt-2">Confirm and Pay Rs. 2,499</button>
             <button type="reset" class="mt-2">Cancel</button>
           </div>
         </form>
+
+        <!-- Form validation and changing price on button when user select a package -->
+        <script>
+          function validation() {
+            var year = document.getElementById("card-expiry-year").value;
+            var current = new Date().getFullYear().toString();
+            if (year.slice(2) < current.slice(2) || year.slice(0, 2) != 20) {
+              $('#popup-unsuccessPay').modal('show');
+            } else {
+              var price;
+              var selectedElement = document.getElementById("package").value;
+              switch(selectedElement) {
+                case "classic-lite":
+                  price = 2499;
+                  break;
+                case "classic-pro":
+                  price = 5999;
+                  break;
+                case "gold":
+                  price = 9999;
+                  break;
+                case "premium":
+                  price = 19999;
+                  break;
+              }
+              document.getElementById("carDholder").innerText = document.getElementById("card-holder-name").value;
+              document.getElementById("carDnum").innerText = document.getElementById("cardNum").value;
+              document.getElementById("amounTpaid").innerText = price.toLocaleString();
+              document.getElementById("transactionID").innerText = (Math.random() + 1).toString(36).substring(2);
+              $('#popup-successPay').modal('show');
+            }
+          }
+
+          function change() {
+            var selectedElement = "classic-lite";
+            var price = 2499;
+            selectedElement = document.getElementById("package").value;
+            switch(selectedElement) {
+              case "classic-pro":
+                price = 5999;
+                break;
+              case "gold":
+                price = 9999;
+                break;
+              case "premium":
+                price = 19999;
+                break;
+            }
+            document.getElementById("payment_btn").innerText = `Confirm and Pay Rs.${price.toLocaleString()}`;
+          }
+        </script>
         
       <!-- End Membership Form -->
     </section>
@@ -287,7 +340,7 @@
                   </th>
 
                   <td>
-                    <p>(fetch data)</p>
+                    <p id="carDholder"></p>
                   </td>
                 </tr>
 
@@ -297,7 +350,7 @@
                   </th>
 
                   <td>
-                    <p>(fetch data)</p>
+                    <p id="carDnum"></p>
                   </td>
                 </tr>
 
@@ -307,7 +360,7 @@
                   </th>
 
                   <th>
-                    <p>(fetch data)</p>
+                    <p id="amounTpaid"></p>
                   </th>
                 </tr>
 
@@ -317,17 +370,18 @@
                   </th>
 
                   <td>
-                    <p>(fetch data)</p>
+                    <p id="transactionID"></p>
                   </td>
                 </tr>
               </table>
               
               <div>
                 <button type="button" class="mt-2" onclick="print()">Print</button>
-                <button type="button" class="mt-2" data-bs-dismiss="modal">Close</button>
+                <form action="/index">
+                  <button type="submit" class="mt-2" data-bs-dismiss="modal">Close</button>
+                </form>
               </div>
-              
-              
+  
             </form>
           </div>
         </div>
@@ -346,8 +400,10 @@
               </header>
               
               <div>
-                <button type="button" class="mt-2" data-bs-dismiss="modal">Try Again!</button>
-                <button type="button" class="mt-2" data-bs-dismiss="modal">Close</button>
+                <form action="/index">
+                  <button type="submit" class="mt-2" data-bs-dismiss="modal">Try Again!</button>
+                  <button type="submit" class="mt-2" data-bs-dismiss="modal">Close</button>
+                </form>
               </div>
             </form>
           </div>
@@ -365,7 +421,7 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="index" class="logo d-flex align-items-center">
             <span>Find Us</span>
           </a>
           <div class="social-links d-flex mt-4">
@@ -379,9 +435,9 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="index">Home</a></li>
+            <li><a href="about">About us</a></li>
+            <li><a href="services">Services</a></li>
             <li><a>Terms of service</a></li>
             <li><a>Privacy policy</a></li>
           </ul>
@@ -425,17 +481,17 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/vendor/aos/aos.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../assets/js/main.js"></script>
+  <script src="/js/main.js"></script>
   <!-- Chatbot JS File -->
-  <script src="../assets/js/chatbot.js"></script>
+  <script src="/js/chatbot.js"></script>
 
 </body>
 
